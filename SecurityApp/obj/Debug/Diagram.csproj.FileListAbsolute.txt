@@ -1,0 +1,2 @@
+C:\Users\juan\source\repos\SecurityApp\obj\Debug\Diagram.csproj.AssemblyReference.cache
+C:\Users\juan\source\repos\SecurityApp\obj\Debug\Diagram.csproj.CoreCompileInputs.cache

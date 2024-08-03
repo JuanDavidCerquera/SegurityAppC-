@@ -1,0 +1,128 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema xmlns="http://schemas.microsoft.com/ado/2009/11/edm" xmlns:cg="http://schemas.microsoft.com/ado/2006/04/codegeneration" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" Namespace="Model1" Alias="Self" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" annotation:UseStrongSpatialTypes="false">
+  <EntityContainer Name="Model1Container" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="ModuloSet" EntityType="Model1.Modulo" />
+    <EntitySet Name="VistaSet" EntityType="Model1.Vista" />
+    <EntitySet Name="Rol_VistaSet" EntityType="Model1.Rol_Vista" />
+    <EntitySet Name="RolSet" EntityType="Model1.Rol" />
+    <EntitySet Name="Rol_UsuarioSet" EntityType="Model1.Rol_Usuario" />
+    <EntitySet Name="UsuarioSet" EntityType="Model1.Usuario" />
+    <EntitySet Name="PersonaSet" EntityType="Model1.Persona" />
+    <AssociationSet Name="VistaModulo" Association="Model1.VistaModulo">
+      <End Role="Vista" EntitySet="VistaSet" />
+      <End Role="Modulo" EntitySet="ModuloSet" />
+    </AssociationSet>
+    <AssociationSet Name="Rol_VistaVista" Association="Model1.Rol_VistaVista">
+      <End Role="Rol_Vista" EntitySet="Rol_VistaSet" />
+      <End Role="Vista" EntitySet="VistaSet" />
+    </AssociationSet>
+    <AssociationSet Name="Rol_VistaRol" Association="Model1.Rol_VistaRol">
+      <End Role="Rol_Vista" EntitySet="Rol_VistaSet" />
+      <End Role="Rol" EntitySet="RolSet" />
+    </AssociationSet>
+    <AssociationSet Name="Rol_UsuarioRol" Association="Model1.Rol_UsuarioRol">
+      <End Role="Rol_Usuario" EntitySet="Rol_UsuarioSet" />
+      <End Role="Rol" EntitySet="RolSet" />
+    </AssociationSet>
+    <AssociationSet Name="Rol_UsuarioUsuario" Association="Model1.Rol_UsuarioUsuario">
+      <End Role="Rol_Usuario" EntitySet="Rol_UsuarioSet" />
+      <End Role="Usuario" EntitySet="UsuarioSet" />
+    </AssociationSet>
+    <AssociationSet Name="UsuarioPersona" Association="Model1.UsuarioPersona">
+      <End Role="Usuario" EntitySet="UsuarioSet" />
+      <End Role="Persona" EntitySet="PersonaSet" />
+    </AssociationSet>
+  </EntityContainer>
+  <EntityType Name="Modulo">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Descripcion" Type="String" Nullable="false" />
+    <Property Name="Nombre" Type="String" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Vista">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Nombre" Type="String" Nullable="false" />
+    <Property Name="Descripcion" Type="String" Nullable="false" />
+    <Property Name="Ruta" Type="String" Nullable="false" />
+    <NavigationProperty Name="ModuloId" Relationship="Model1.VistaModulo" FromRole="Vista" ToRole="Modulo" />
+  </EntityType>
+  <EntityType Name="Rol_Vista">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <NavigationProperty Name="VistaId" Relationship="Model1.Rol_VistaVista" FromRole="Rol_Vista" ToRole="Vista" />
+    <NavigationProperty Name="Rol" Relationship="Model1.Rol_VistaRol" FromRole="Rol_Vista" ToRole="Rol" />
+  </EntityType>
+  <EntityType Name="Rol">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Nombre" Type="String" Nullable="false" />
+    <Property Name="Descripcion" Type="String" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Rol_Usuario">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <NavigationProperty Name="RolId" Relationship="Model1.Rol_UsuarioRol" FromRole="Rol_Usuario" ToRole="Rol" />
+    <NavigationProperty Name="UsuarioId" Relationship="Model1.Rol_UsuarioUsuario" FromRole="Rol_Usuario" ToRole="Usuario" />
+  </EntityType>
+  <EntityType Name="Usuario">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="NombreUsuario" Type="String" Nullable="false" />
+    <Property Name="Contraseña" Type="String" Nullable="false" />
+    <NavigationProperty Name="PersonaId" Relationship="Model1.UsuarioPersona" FromRole="Usuario" ToRole="Persona" />
+  </EntityType>
+  <EntityType Name="Persona">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="PrimerNombre" Type="String" Nullable="false" />
+    <Property Name="SegundoNombre" Type="String" Nullable="false" />
+    <Property Name="PrimerApellido" Type="String" Nullable="false" />
+    <Property Name="SegundoApellido" Type="String" Nullable="false" />
+    <Property Name="CorreoElectronico" Type="String" Nullable="false" />
+    <Property Name="FechaNacimiento" Type="DateTime" Nullable="false" />
+    <Property Name="Genero" Type="String" Nullable="false" />
+    <Property Name="Direccion" Type="String" Nullable="false" />
+    <Property Name="TipoDocumento" Type="String" Nullable="false" />
+    <Property Name="NumeroDocumento" Type="Int32" Nullable="false" />
+    <Property Name="Telefono" Type="Int32" Nullable="false" />
+  </EntityType>
+  <Association Name="VistaModulo">
+    <End Type="Model1.Vista" Role="Vista" Multiplicity="*" />
+    <End Type="Model1.Modulo" Role="Modulo" Multiplicity="1" />
+  </Association>
+  <Association Name="Rol_VistaVista">
+    <End Type="Model1.Rol_Vista" Role="Rol_Vista" Multiplicity="*" />
+    <End Type="Model1.Vista" Role="Vista" Multiplicity="1" />
+  </Association>
+  <Association Name="Rol_VistaRol">
+    <End Type="Model1.Rol_Vista" Role="Rol_Vista" Multiplicity="*" />
+    <End Type="Model1.Rol" Role="Rol" Multiplicity="1" />
+  </Association>
+  <Association Name="Rol_UsuarioRol">
+    <End Type="Model1.Rol_Usuario" Role="Rol_Usuario" Multiplicity="*" />
+    <End Type="Model1.Rol" Role="Rol" Multiplicity="1" />
+  </Association>
+  <Association Name="Rol_UsuarioUsuario">
+    <End Type="Model1.Rol_Usuario" Role="Rol_Usuario" Multiplicity="*" />
+    <End Type="Model1.Usuario" Role="Usuario" Multiplicity="1" />
+  </Association>
+  <Association Name="UsuarioPersona">
+    <End Type="Model1.Usuario" Role="Usuario" Multiplicity="1" />
+    <End Type="Model1.Persona" Role="Persona" Multiplicity="1" />
+  </Association>
+</Schema>

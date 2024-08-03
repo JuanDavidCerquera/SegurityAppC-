@@ -1,0 +1,12 @@
+C:\Users\juan\source\repos\SecurityApp\Utilitis\bin\Debug\net7.0\Utilitis.deps.json
+C:\Users\juan\source\repos\SecurityApp\Utilitis\bin\Debug\net7.0\Utilitis.dll
+C:\Users\juan\source\repos\SecurityApp\Utilitis\bin\Debug\net7.0\Utilitis.pdb
+C:\Users\juan\source\repos\SecurityApp\Utilitis\obj\Debug\net7.0\Utilitis.csproj.AssemblyReference.cache
+C:\Users\juan\source\repos\SecurityApp\Utilitis\obj\Debug\net7.0\Utilitis.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\juan\source\repos\SecurityApp\Utilitis\obj\Debug\net7.0\Utilitis.AssemblyInfoInputs.cache
+C:\Users\juan\source\repos\SecurityApp\Utilitis\obj\Debug\net7.0\Utilitis.AssemblyInfo.cs
+C:\Users\juan\source\repos\SecurityApp\Utilitis\obj\Debug\net7.0\Utilitis.csproj.CoreCompileInputs.cache
+C:\Users\juan\source\repos\SecurityApp\Utilitis\obj\Debug\net7.0\Utilitis.dll
+C:\Users\juan\source\repos\SecurityApp\Utilitis\obj\Debug\net7.0\refint\Utilitis.dll
+C:\Users\juan\source\repos\SecurityApp\Utilitis\obj\Debug\net7.0\Utilitis.pdb
+C:\Users\juan\source\repos\SecurityApp\Utilitis\obj\Debug\net7.0\ref\Utilitis.dll

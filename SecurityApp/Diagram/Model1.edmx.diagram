@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="1568e8eb70ef413488373f52ce148ebd" Name="Diagram1" ZoomLevel="97" >
+        <EntityTypeShape EntityType="Model1.Modulo" Width="1.5" PointX="0.5" PointY="4.125" />
+        <EntityTypeShape EntityType="Model1.Vista" Width="1.5" PointX="0.5" PointY="1.375" />
+        <EntityTypeShape EntityType="Model1.Rol_Vista" Width="1.5" PointX="2.375" PointY="1.375" />
+        <EntityTypeShape EntityType="Model1.Rol" Width="1.5" PointX="4.25" PointY="1.375" />
+        <EntityTypeShape EntityType="Model1.Rol_Usuario" Width="1.5" PointX="6.25" PointY="1.375" />
+        <EntityTypeShape EntityType="Model1.Usuario" Width="1.5" PointX="8.375" PointY="1.375" />
+        <EntityTypeShape EntityType="Model1.Persona" Width="1.5" PointX="8.375" PointY="3.75" />
+        <AssociationConnector Association="Model1.VistaModulo" />
+        <AssociationConnector Association="Model1.Rol_VistaVista" />
+        <AssociationConnector Association="Model1.Rol_VistaRol" />
+        <AssociationConnector Association="Model1.Rol_UsuarioRol" />
+        <AssociationConnector Association="Model1.Rol_UsuarioUsuario" />
+        <AssociationConnector Association="Model1.UsuarioPersona" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

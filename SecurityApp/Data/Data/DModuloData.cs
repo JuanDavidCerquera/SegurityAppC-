@@ -30,6 +30,7 @@ namespace Data.Data
                 throw new Exception("Registro no encontrado");
             }
             entity.DeletedAt = DateTime.Parse(DateTime.Today.ToString());
+            entity.Estado = false;
             context.Modulos.Update(entity);
             await context.SaveChangesAsync();
         }

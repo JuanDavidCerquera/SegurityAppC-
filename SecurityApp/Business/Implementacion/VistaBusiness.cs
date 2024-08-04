@@ -36,6 +36,7 @@ namespace Business.Implementacion
             Vista vista = new Vista();
             vista = this.MapearDatos(vista, entity);
             vista.CreateAt = DateTime.Now;
+            vista.Estado = true;
             return await this.data.Save(vista);
         }
         public async Task Update(VistaDto entity)

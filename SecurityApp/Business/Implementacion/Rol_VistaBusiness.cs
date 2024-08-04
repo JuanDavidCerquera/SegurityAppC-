@@ -35,6 +35,7 @@ namespace Business.Implementacion
         {
             Rol_Vista entity = new Rol_Vista();
             entity = this.MapearDatos(entity,entityDto);
+            entity.Estado = true;
             return entity;
 
 

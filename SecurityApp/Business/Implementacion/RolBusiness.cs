@@ -7,6 +7,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using static Dapper.SqlMapper;
 
 namespace Business.Implementacion
 {
@@ -43,6 +44,7 @@ namespace Business.Implementacion
             Rol Rol = new Rol();
             Rol = this.MapearDatos(Rol, entityDto);
             Rol.CreateAt = DateTime.Now;
+            Rol.Estado = true;
             return await this.data.Save(Rol);
         }
 

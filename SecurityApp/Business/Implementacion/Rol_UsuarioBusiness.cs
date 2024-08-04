@@ -32,6 +32,7 @@ namespace Business.Implementacion
             Rol_Usuario entity = new Rol_Usuario();
             entity = this.MapearDatos(entity, entityDto);
             entity.CreateAt = DateTime.Now;
+            entity.Estado = true;
             return await this.data.Save(entity);
         }
         public async Task Update(Rol_UsuarioDto entityDto)
@@ -43,6 +44,7 @@ namespace Business.Implementacion
             }
             entity = MapearDatos(entity, entityDto);
             entity.UpdateAt = DateTime.Now;
+
             await this.data.Update(entity);
         }
         private Rol_UsuarioDto MostrarDatos(Rol_Usuario entity, Rol_UsuarioDto entityDto)

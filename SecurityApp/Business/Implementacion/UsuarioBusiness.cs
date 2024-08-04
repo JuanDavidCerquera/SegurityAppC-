@@ -7,6 +7,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using static Dapper.SqlMapper;
 
 namespace Business.Implementacion
 {
@@ -43,6 +44,7 @@ namespace Business.Implementacion
             Usuario Usuario = new Usuario();
             Usuario = this.MapearDatos(Usuario, entityDto);
             Usuario.CreateAt = DateTime.Now;
+            Usuario.Estado = true;
             return await this.data.Save(Usuario);
         }
 

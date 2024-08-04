@@ -1,14 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Data;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using Business.Interface;
+﻿using Business.Interface;
 using Data.Interface;
 using Entity.Model.Dto;
 using Entity.Model.Security;
-using static Dapper.SqlMapper;
+using System.Data;
 
 namespace Business.Implementacion
 {
@@ -48,6 +42,7 @@ namespace Business.Implementacion
             Modulo modulo = new Modulo();
             modulo = this.MapearDatos(modulo, entity);
             modulo.CreateAt = DateTime.Now;
+            modulo.Estado = true;
             return await this.data.Save(modulo);
         }
 
@@ -62,18 +57,14 @@ namespace Business.Implementacion
             modulo.UpdateAt = DateTime.Now;
             await this.data.Update(modulo);
         }
- 
-        private List<ModuloDto>MostrarDatos(List<Modulo> listEntity)
+
+        private List<ModuloDto> MostrarDatos(List<Modulo> entity)
         {
-            List<ModuloDto> listaDto = new List<ModuloDto>();
-            int i = 0;
-            listEntity.ForEach(item =>
+            return entity.Select(item => new ModuloDto
             {
-                listaDto[i].Nombre = item.Nombre;
-                listaDto[i].Descripcion = item.Descripcion;
-                i++;
-            });
-            return listaDto;
+                Nombre = item.Nombre,
+                Descripcion = item.Descripcion
+            }).ToList();
         }
         private Modulo MapearDatos(Modulo entity, ModuloDto entityDto)
         {

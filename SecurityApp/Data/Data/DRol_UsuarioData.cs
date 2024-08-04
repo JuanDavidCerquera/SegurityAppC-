@@ -30,13 +30,14 @@ namespace Data.Data
                 throw new Exception("Registro no encontrado");
             }
             entity.DeletedAt = DateTime.Parse(DateTime.Today.ToString());
+            entity.Estado = false;
             context.Rol_Usuarios.Update(entity);
             await context.SaveChangesAsync();
         }
 
         public async Task<Rol_Usuario> GetById(int id)
         {
-            var sql = @"SELECT * FROM Usuario_Rol WHERE Id = @Id";
+            var sql = @"SELECT * FROM Rol_Usuarios WHERE Id = @Id";
             return await this.context.QueryFirstOrDefaultAsync<Rol_Usuario>(sql, new { Id = id });
         }
 
@@ -55,7 +56,7 @@ namespace Data.Data
 
         public async Task<List<Rol_Usuario>> GetAll()
         {
-            var sql = "SELECT * FROM Rol_Usuarios WHERE Deleted_at IS NULL AND State = 1";
+            var sql = "SELECT * FROM Rol_Usuarios WHERE DeletedAt IS NULL AND Estado = 1";
             var entity = await context.QueryAsync<Rol_Usuario>(sql);
             return entity.ToList();
         }

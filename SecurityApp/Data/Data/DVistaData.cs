@@ -26,6 +26,7 @@ namespace Data.Data
                 throw new Exception("Registro no encontrado");
             }
             entity.DeletedAt = DateTime.Parse(DateTime.Today.ToString());
+            entity.Estado = false;
             context.Vistas.Update(entity);
             await context.SaveChangesAsync();
         }
@@ -58,14 +59,14 @@ namespace Data.Data
           var sql = @"SELECT id, nombre As TextoMostrar
                FROM 
                    vistas
-               WHERE Deleted_at IS NULL AND State = 1
+               WHERE DeletedAt IS NULL AND Estado = 1
                ORDER BY Id ASC";
           return await context.QueryAsync<DataSelectDto>(sql);
       }
 
         public async Task<List<Vista>> GetAll()
         {
-            var sql = @"SELECT * FROM vistas WHERE Deleted_at IS NULL AND State = 1";
+            var sql = @"SELECT * FROM vistas WHERE DeletedAt IS NULL AND Estado = 1";
             var Entity = await context.QueryAsync<Vista>(sql);
             return Entity.ToList();
         }

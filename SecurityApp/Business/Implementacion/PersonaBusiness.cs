@@ -42,6 +42,7 @@ namespace Business.Implementacion
             Persona entity = new Persona();
             entity = this.MapearDatos(entity, entityDto);
             entity.CreateAt = DateTime.Now;
+            entity.Estado = true;
             return await this.data.Save(entity);
         }
 
